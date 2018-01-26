@@ -13,7 +13,7 @@
 class QSqlQuerry;
 class QSqlDatabase;
 
-static const QString DATABASE_CONFIG_FILE_PATH = "/home/marius/DB/build-Competitie_judo-Desktop-Debug";
+static const QString DATABASE_CONFIG_FILE_PATH = "/home/marius/DB/Championship/Competitie_judo/config.conf";
 
 class DatabaseManager
 {

@@ -2,7 +2,8 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QDebug>
-
+#include<QSqlError>
+using namespace std;
 const QString Tabel_Concurent_BazaDate = "concurent";
 
 concurentRepository::concurentRepository(QSqlDatabase& database):mDatabase(database)
@@ -14,13 +15,16 @@ void concurentRepository::init() const
     if(!mDatabase.tables().contains(Tabel_Concurent_BazaDate))
        {
            QSqlQuery query(mDatabase);
+           printf("intra in tabe");
            query.prepare("CREATE TABLE concurent ( Id int PRIMARY KEY, nume_concurent character(30),varsta smallint NOT NULL,greutate smallint NOT NULL,experienta character(20) NOT NULL,punctaj smallint NOT NULL DEFAULT 0,CNP smallint NOT NULL);");
            if(query.exec())
            {
+               printf("creat");
                qDebug() << "Creat";
            }
            else
            {
+               printf("necreat");
                qDebug() << "Necreat";
            }
    }
@@ -29,23 +33,25 @@ void concurentRepository::init() const
 void concurentRepository::AdaugaConcurent(concurent& Concurent)
 {
     QSqlQuery query(mDatabase);
-    query.prepare("INSERT INTO"
-                  "     concurent"
-                  "(nume, varsta, greutate, experienta, punctaj,CNP)"
-                  "VALUES (:CNP, :nr_puncte, :team, :age, :weight)");
-        query.bindValue(":nume", Concurent.getNume());
+    printf("intra");
+    query.prepare("INSERT INTO concurent(id,nume_concurent,varsta,greutate,experienta,punctaj,CNP)"
+                  "VALUES(:id,:nume_concurent,:varsta,:greutate,:experienta,:punctaj,:CNP)");
+        query.bindValue(":id",4);
+        query.bindValue(":nume_concurent",Concurent.getNume());
         query.bindValue(":varsta", Concurent.getVarsta());
         query.bindValue(":greutate", Concurent.getGreutate());
         query.bindValue(":experienta", Concurent.getExperienta());
         query.bindValue(":punctaj", Concurent.getnrPuncte());
         query.bindValue(":CNP", Concurent.getCNP());
-
+        //printf("a facut prepare");
+        qDebug() <<query.lastError();
 
         //query.bindValue(":Organizatie", Concurent.getOrganizatie());
 
 
 
         query.exec();
+        printf("a facut exec");
 }
 void concurentRepository::UpdateConcurent(concurent& Concurent)
 {
@@ -55,7 +61,7 @@ void concurentRepository::UpdateConcurent(concurent& Concurent)
                       "SET"
                       "      nr_puncte = (:nr_puncte)"
                       "WHERE"
-                      "      id = (:id)");
+                      "      CNP = (:CNP)");
         query.bindValue(":nr_puncte", Concurent.getnrPuncte());
         query.bindValue(":CNP", Concurent.getCNP());
         query.exec();
