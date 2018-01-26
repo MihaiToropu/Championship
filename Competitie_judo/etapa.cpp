@@ -1,22 +1,22 @@
 #include "etapa.h"
 
-etapa::etapa(QString nume, QList<categorie> listCategorie, duel Duel)
+etapa::etapa(QString nume, QList<categorie>& listCategorie,duel *mDuel)
 {
     this->nume=nume;
     this->listCategorie=listCategorie;
-    this->Duel=Duel;
+    this->mDuel=mDuel;
 }
-etapa::SimuleazaDuel(duel Duel)
+void etapa::SimuleazaDuel(duel& mDuel)
 {
 
 }
 
-etapa::SimuleazaEtapa()
+void etapa::SimuleazaEtapa()
 {
 
 }
 
-etapa::SimuleazaClasament(clasament clasament)
+void etapa::SimuleazaClasament(clasament& mClasament)
 {
 
 }

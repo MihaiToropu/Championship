@@ -13,16 +13,16 @@
 class QSqlQuerry;
 class QSqlDatabase;
 
-const QString DATABASE_CONFIG_FILE_PATH = QDir::currentPath() + "/debug/config.conf";
+static const QString DATABASE_CONFIG_FILE_PATH = "/home/marius/DB/build-Competitie_judo-Desktop-Debug";
 
 class DatabaseManager
 {
+
 public:
     static DatabaseManager& instance();
     ~DatabaseManager();
 protected:
     DatabaseManager(const QString& path = DATABASE_CONFIG_FILE_PATH);
-    DatabaseManager& operator=(const DatabaseManager& rhs);
 
 private:
     std::unique_ptr<QSqlDatabase> mDatabase;
@@ -30,6 +30,6 @@ public:
     concurentRepository mConcurentRepository;
     categorieRepository mCategorieRepository;
 };
-};
+
 
 #endif // DATABASEMANAGER_H

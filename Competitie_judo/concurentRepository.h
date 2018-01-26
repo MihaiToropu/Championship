@@ -3,7 +3,7 @@
 
 #include<QList>;
 #include"concurent.h"
-
+#include<memory>
 
 class QSqlDatabase;
 
@@ -15,7 +15,7 @@ public:
     void AdaugaConcurent(concurent& Concurent);
     void UpdateConcurent(concurent& player);
     void StergeConcurent(int CNP);
-    QList<concurent>listaConcurent() const;
+    std::vector<concurent> listaConcurent() const;
 private:
      QSqlDatabase& mDatabase;
 

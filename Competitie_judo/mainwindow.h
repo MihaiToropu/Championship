@@ -2,6 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include"adaugacategoriedialog.h"
+#include"adaugaconcurentdialog.h"
+#include"categorie.h"
+#include"concurent.h"
 
 namespace Ui {
 class MainWindow;
@@ -15,8 +19,23 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+private slots:
+    void AdaugaCategorie();
+    void AdaugaConcurent();
+    void StergeConcurent();
+    void StergeCategorie();
+    void onViewTriggered(QAction *action);
+    void onRefresh();
+
 private:
     Ui::MainWindow *ui;
+    //std::unique_ptr<adaugaCategorieDialog> mAdaugaCategorieDialog;
+
+    //std::unique_ptr<adaugaConcurentDialog> mAdaugaConcurentDialog;
+    adaugaConcurentDialog *m_AdaugaConcurentDialog;
+    adaugaCategorieDialog *m_AdaugaCategorieDialog;
+    //concurent mConcurent;
+    //categorie mCategorie;
 };
 
 #endif // MAINWINDOW_H

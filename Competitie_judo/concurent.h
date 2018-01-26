@@ -3,29 +3,31 @@
 
 
 #include <QString>
-#include "organizatie.h"
-
+#include <organizatie.h>
+class organizatie;
 class concurent
 {
 public:
-    concurent(int id,int varsta,int greutate,QString experienta,int nrPuncte,int CNP,organizatie Organizatie);
+    concurent(QString nume,int varsta,int greutate,QString experienta,int nrPuncte,int CNP/*,organizatie Organizatie*/);
 
     int getVarsta();
     int getGreutate();
-    char getExperienta();
+    QString getExperienta();
+    QString getNume();
     int getCNP();
     void setnrPuncte(int puncte);
     int getnrPuncte();
-    int getOrganizatie();
+   // organizatie getOrganizatie();
 
 private:
     int id;//indentificatorul unic al fiecarui concurent
+    QString nume;
     int varsta; //varsta concurentului
     int greutate; //greutatea concurentului
     int CNP;//cnp-ul concurentului
     QString experienta;//experienta concurentului
     int nrPuncte; // numarul de puncte acumulat de concurent pe perioada competitiei
-    organizatie Organizatie;
+    //organizatie Organizatie;
 };
 
 #endif // CONCURENT_H

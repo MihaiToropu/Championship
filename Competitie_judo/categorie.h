@@ -9,7 +9,7 @@ class categorie
 {
 public:
     categorie(int id,QString nume);
-    void AddConcurent(concurent Concurent);
+    void AddConcurent(concurent &Concurent);
     QString getNume();
     int getId();
 
@@ -17,7 +17,7 @@ public:
 private:
      QString nume; //numele categoriei
      int id;
-     concurent castigator;//castigatorul pe fiecare categorie
+     //concurent& castigator;//castigatorul pe fiecare categorie
      QList<concurent>listaConcurenti;//lista de concurenti din fiecare categorie
 };
 

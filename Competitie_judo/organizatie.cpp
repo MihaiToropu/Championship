@@ -5,11 +5,11 @@ organizatie::organizatie(int id, QString nume)
     this->id=id;
     this->nume=nume;
 }
-organizatie::addOrganizatie()
+void organizatie::addOrganizatie()
 {
 
 }
-organizatie::deleteOrganizatie()
+void organizatie::deleteOrganizatie()
 {
 
 }

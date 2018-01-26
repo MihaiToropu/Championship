@@ -1,18 +1,18 @@
 #include "duel.h"
 
-duel::duel(categorie Categorie)
+duel::duel(categorie  *Categorie)
 {
     this->Categorie=Categorie;
 }
-duel::DeterminaCastigator()
+void duel::DeterminaCastigator()
 {
 
 }
-duel::UpdateList()
+void duel::UpdateList()
 {
 
 }
-duel::UpdatePunctaj()
+void duel::UpdatePunctaj()
 {
 
 }

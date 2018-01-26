@@ -2,44 +2,50 @@
 
 
 
-concurent::concurent(int id,int varsta,int greutate,QString experienta,int nrPuncte,int CNP,organizatie Organizatie)
+concurent::concurent(QString nume,int varsta,int greutate,QString experienta,int nrPuncte,int CNP/*,organizatie Organizatie*/)
 {
-    this->id=id;
+    this->nume=nume;
     this->varsta=varsta;
     this->greutate=greutate;
     this->experienta=experienta;
     this->nrPuncte=nrPuncte;
     this->CNP=CNP;
-    this->Organizatie=Organizatie;
+    //this->Organizatie=Organizatie;
 
 }
-concurent::getVarsta()
+ int concurent::getVarsta()
 {
     return varsta;
 }
 
-concurent::getGreutate()
+int concurent::getGreutate()
 {
     return greutate;
 }
 
-concurent::getExperienta()
+QString concurent::getExperienta()
 {
     return experienta;
 }
-concurent::setnrPuncte(int puncte)
+void concurent::setnrPuncte(int puncte)
 {
     nrPuncte+=puncte;
 }
-concurent::getnrPuncte()
+int concurent::getnrPuncte()
 {
     return nrPuncte;
 }
-concurent::getCNP()
+int concurent::getCNP()
 {
     return CNP;
 }
-concurent::getOrganizatie()
+QString concurent::getNume()
+{
+    return nume;
+}
+
+/*organizatie concurent::getOrganizatie()
 {
     return organizatie;
 }
+*/

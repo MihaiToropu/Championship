@@ -10,8 +10,8 @@ DatabaseManager&DatabaseManager::instance()
 
 DatabaseManager::DatabaseManager(const QString& path) :
     mDatabase(new QSqlDatabase(QSqlDatabase::addDatabase("QPSQL"))),
-    mPlayerDao(*mDatabase),
-    mCategoryDao(*mDatabase)
+    mConcurentRepository(*mDatabase),
+    mCategorieRepository(*mDatabase)
 {
     qDebug() << path;
 
@@ -22,20 +22,23 @@ DatabaseManager::DatabaseManager(const QString& path) :
     mDatabase->setHostName(settings.value("HOSTNAME").toString());
     mDatabase->setUserName(settings.value("USERNAME").toString());
     mDatabase->setPassword(settings.value("PASSWORD").toString());
+   // mDatabase->open();
 
     bool databaseConnected = mDatabase->open();
+   // printf("%s",databaseConnected);
 
     if(databaseConnected)
     {
         qDebug() << "Database connection: Connected";
+
     }
     else
     {
         qDebug() << "Database connection: Not Connected";
     }
 
-    mPlayerDao.init();
-    mCategoryDao.init();
+    mConcurentRepository.init();
+    mCategorieRepository.init();
 }
 
 DatabaseManager::~DatabaseManager()

@@ -6,18 +6,18 @@ categorie::categorie(int id,QString nume)
     this->nume=nume;
 }
 
-categorie::getNume()
+QString categorie::getNume()
 {
     return nume;
 }
 
-categorie::getId()
+int categorie::getId()
 {
     return id;
 }
 
 
-categorie::AddConcurent(concurent& Concurent)
+void categorie::AddConcurent(concurent &Concurent)
 {
     listaConcurenti.push_back(Concurent);
 }

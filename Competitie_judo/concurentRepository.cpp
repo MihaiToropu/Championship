@@ -1,20 +1,20 @@
 #include "concurentRepository.h"
 #include <QSqlDatabase>
 #include <QSqlQuery>
+#include <QDebug>
 
-const QString Tabel_Concurent_BazaDate = "Concurenti";
+const QString Tabel_Concurent_BazaDate = "concurent";
 
-concurentRepository::concurentRepository(QSqlDatabase& database)
+concurentRepository::concurentRepository(QSqlDatabase& database):mDatabase(database)
 {
-    this->mDatabase=database;
 }
 
-concurentRepository::init()
+void concurentRepository::init() const
 {
     if(!mDatabase.tables().contains(Tabel_Concurent_BazaDate))
        {
            QSqlQuery query(mDatabase);
-           query.prepare("CREATE TABLE Players ( Id int PRIMARY KEY, Score int, Team text, Age int, Weight int);");
+           query.prepare("CREATE TABLE concurent ( Id int PRIMARY KEY, nume_concurent character(30),varsta smallint NOT NULL,greutate smallint NOT NULL,experienta character(20) NOT NULL,punctaj smallint NOT NULL DEFAULT 0,CNP smallint NOT NULL);");
            if(query.exec())
            {
                qDebug() << "Creat";
@@ -26,61 +26,68 @@ concurentRepository::init()
    }
 
 }
-concurentRepository::AdaugaConcurent(concurent& Concurent)
+void concurentRepository::AdaugaConcurent(concurent& Concurent)
 {
     QSqlQuery query(mDatabase);
     query.prepare("INSERT INTO"
-                  "     Players"
-                  "(CNP, Score, Team, Age, Weight)"
+                  "     concurent"
+                  "(nume, varsta, greutate, experienta, punctaj,CNP)"
                   "VALUES (:CNP, :nr_puncte, :team, :age, :weight)");
-        query.bindValue(":CNP", Concurent.GetCNP());
-        query.bindValue(":NrPuncte", Concurent.getnrPuncte());
-        query.bindValue(":Organizatie", Concurent.getOrganizatie());
+        query.bindValue(":nume", Concurent.getNume());
         query.bindValue(":varsta", Concurent.getVarsta());
         query.bindValue(":greutate", Concurent.getGreutate());
+        query.bindValue(":experienta", Concurent.getExperienta());
+        query.bindValue(":punctaj", Concurent.getnrPuncte());
+        query.bindValue(":CNP", Concurent.getCNP());
+
+
+        //query.bindValue(":Organizatie", Concurent.getOrganizatie());
+
+
+
         query.exec();
 }
-concurentRepository::UpdateConcurent(concurent& Concurent)
+void concurentRepository::UpdateConcurent(concurent& Concurent)
 {
     QSqlQuery query(mDatabase);
         query.prepare("UPDATE "
-                      "     Players"
+                      "     concurent"
                       "SET"
-                      "      score = (:score)"
+                      "      nr_puncte = (:nr_puncte)"
                       "WHERE"
                       "      id = (:id)");
-        query.bindValue(":score", Concurent.getnrPuncte());
-        query.bindValue(":id", Concurent.getCNP());
+        query.bindValue(":nr_puncte", Concurent.getnrPuncte());
+        query.bindValue(":CNP", Concurent.getCNP());
         query.exec();
 }
 
 
-concurentRepository::StergeConcurent(int CNP)
+void concurentRepository::StergeConcurent(int CNP)
 {
     QSqlQuery query(mDatabase);
-    query.prepare("DELETE FROM Players WHERE Id = (:id)");
+    query.prepare("DELETE FROM concurent WHERE CNP = (:CNP)");
     query.bindValue(":CNP", CNP);
     qDebug() << query.exec();
 }
-concurentRepository::listaConcurent()
+std::vector<concurent> concurentRepository::listaConcurent() const
 {
 
     QSqlQuery query(mDatabase);
-    query.prepare("SELECT * FROM Concurent");
+    query.prepare("SELECT * FROM concurent");
     query.exec();
 
-    QList<concurent>listaConcurent;
+    std::vector<concurent>listaConcurent;
     while(query.next()) {
 
-        int id = query.value("Id").toInt();
+        QString nume = query.value("nume").toString();
         QString experienta = query.value("experienta").toString();
         int varsta = query.value("varsta").toInt();
         int greutate = query.value("greutate").toInt();
         int nrPuncte = query.value("nr_puncte").toInt();
         int CNP = query.value("CNP").toInt();
-        QString Organizatie=query.value("nume").toString();
+        //QString Organizatie=query.value("nume").toString();
 
-        concurent Concurent(id,varsta,greutate,experienta,nrPuncte,CNP);
+        concurent Concurent(nume,varsta,greutate,experienta,nrPuncte,CNP);
 
 
         listaConcurent.push_back(Concurent);

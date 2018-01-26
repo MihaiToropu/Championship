@@ -1,16 +1,17 @@
 #ifndef DUEL_H
 #define DUEL_H
 
-#include "categorie.h"
+#include <categorie.h>
+class categorie;
 class duel
 {
 public:
-    duel(categorie Categorie);
+    duel(categorie *Categorie);
     void UpdateList();
     void UpdatePunctaj();
     void DeterminaCastigator();
 private:
-    categorie Categorie;//categoria pentru care se va organiza duelul
+    categorie *Categorie;//categoria pentru care se va organiza duelul
 };
 
 #endif // DUEL_H

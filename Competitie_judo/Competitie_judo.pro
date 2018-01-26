@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
-
+QT       += sql
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Competitie_judo
@@ -34,7 +34,9 @@ SOURCES += \
     clasament.cpp \
     databasemanager.cpp \
     concurentRepository.cpp \
-    categorierepository.cpp
+    categorierepository.cpp \
+    adaugaconcurentdialog.cpp \
+    adaugacategoriedialog.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -46,10 +48,14 @@ HEADERS += \
     clasament.h \
     databasemanager.h \
     concurentRepository.h \
-    categorierepository.h
+    categorierepository.h \
+    adaugaconcurentdialog.h \
+    adaugacategoriedialog.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    adaugaconcurentdialog.ui \
+    adaugacategoriedialog.ui
 
 
 

@@ -6,10 +6,10 @@
 class clasament
 {
 public:
-    clasament(categorie Categorie);
+    clasament(categorie* Categorie);
     void afiseazaClasament();
 private:
-     categorie Categorie;
+     categorie* Categorie;
 };
 
 #endif // CLASAMENT_H
