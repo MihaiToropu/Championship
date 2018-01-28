@@ -1,6 +1,7 @@
 #include "databasemanager.h"
 
 #include <QDebug>
+#include <QMessageBox>
 
 DatabaseManager&DatabaseManager::instance()
 {
@@ -11,7 +12,8 @@ DatabaseManager&DatabaseManager::instance()
 DatabaseManager::DatabaseManager(const QString& path) :
     mDatabase(new QSqlDatabase(QSqlDatabase::addDatabase("QPSQL"))),
     mConcurentRepository(*mDatabase),
-    mCategorieRepository(*mDatabase)
+    mCategorieRepository(*mDatabase),
+    mClubRepository(*mDatabase)
 {
     qDebug() << path;
 
@@ -30,6 +32,7 @@ DatabaseManager::DatabaseManager(const QString& path) :
     if(databaseConnected)
     {
         qDebug() << "Database connection: Connected";
+        //QMessageBox::information(this, tr("No Image Name");
 
     }
     else

@@ -9,9 +9,6 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Competitie_judo
 TEMPLATE = app
-
-CONFIG += console
-
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -37,7 +34,10 @@ SOURCES += \
     concurentRepository.cpp \
     categorierepository.cpp \
     adaugaconcurentdialog.cpp \
-    adaugacategoriedialog.cpp
+    adaugacategoriedialog.cpp \
+    adaugaclubdialog.cpp \
+    club.cpp \
+    clubrepostitory.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -51,12 +51,16 @@ HEADERS += \
     concurentRepository.h \
     categorierepository.h \
     adaugaconcurentdialog.h \
-    adaugacategoriedialog.h
+    adaugacategoriedialog.h \
+    adaugaclubdialog.h \
+    club.h \
+    clubreposititory.h
 
 FORMS += \
         mainwindow.ui \
     adaugaconcurentdialog.ui \
-    adaugacategoriedialog.ui
+    adaugacategoriedialog.ui \
+    adaugaclubdialog.ui
 
 
 

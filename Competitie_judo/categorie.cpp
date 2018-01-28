@@ -21,3 +21,8 @@ void categorie::AddConcurent(concurent &Concurent)
 {
     listaConcurenti.push_back(Concurent);
 }
+
+int categorie::getCastigator()
+{
+    return castigator;
+}

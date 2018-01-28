@@ -4,6 +4,7 @@
 #include <QDialog>
 #include<memory>
 #include "categorie.h"
+#include "categorierepository.h"
 namespace Ui {
 class adaugaCategorieDialog;
 }
@@ -21,6 +22,7 @@ protected:
     void showEvent(QShowEvent *);
 private:
     Ui::adaugaCategorieDialog *ui;
+
 };
 
 #endif // ADAUGACATEGORIEDIALOG_H

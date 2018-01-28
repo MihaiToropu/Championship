@@ -33,29 +33,16 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>20</y>
-     <width>67</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Nume:</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="lVarsta">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
      <y>50</y>
      <width>67</width>
      <height>17</height>
     </rect>
    </property>
    <property name="text">
-    <string>Varsta:</string>
+    <string>Name:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="lGreutate">
+  <widget class="QLabel" name="lVarsta">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -65,20 +52,20 @@
     </rect>
    </property>
    <property name="text">
-    <string>Greutate:</string>
+    <string>Age:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="lExeperienta">
+  <widget class="QLabel" name="lGreutate">
    <property name="geometry">
     <rect>
      <x>30</x>
      <y>110</y>
-     <width>81</width>
+     <width>67</width>
      <height>17</height>
     </rect>
    </property>
    <property name="text">
-    <string>Experienta:</string>
+    <string>Weight:</string>
    </property>
   </widget>
   <widget class="QLabel" name="lNr_puncte">
@@ -91,33 +78,23 @@
     </rect>
    </property>
    <property name="text">
-    <string>Nr_puncte:</string>
+    <string>Points:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="lCNP">
+  <widget class="QLabel" name="lID">
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>170</y>
-     <width>67</width>
+     <y>20</y>
+     <width>21</width>
      <height>17</height>
     </rect>
    </property>
    <property name="text">
-    <string>CNP:</string>
+    <string>ID:</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineNume">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>20</y>
-     <width>113</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineVarsta">
    <property name="geometry">
     <rect>
      <x>80</x>
@@ -127,20 +104,20 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineGreutate">
+  <widget class="QLineEdit" name="lineVarsta">
    <property name="geometry">
     <rect>
-     <x>100</x>
+     <x>80</x>
      <y>80</y>
      <width>113</width>
      <height>21</height>
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineExperienta">
+  <widget class="QLineEdit" name="lineGreutate">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>100</x>
      <y>110</y>
      <width>113</width>
      <height>21</height>
@@ -157,11 +134,11 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineCNP">
+  <widget class="QLineEdit" name="lineID">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>170</y>
+     <x>80</x>
+     <y>20</y>
      <width>113</width>
      <height>21</height>
     </rect>
@@ -180,23 +157,46 @@
     <string>Concurent</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="lCategory">
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>200</y>
+     <y>170</y>
      <width>67</width>
      <height>17</height>
     </rect>
    </property>
    <property name="text">
-    <string>Categorie</string>
+    <string>Category:</string>
    </property>
   </widget>
   <widget class="QComboBox" name="comboCategorie">
    <property name="geometry">
     <rect>
-     <x>100</x>
+     <x>110</x>
+     <y>170</y>
+     <width>86</width>
+     <height>25</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lfight_club">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>205</y>
+     <width>81</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Fight_Club</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboClub">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
      <y>200</y>
      <width>86</width>
      <height>25</height>

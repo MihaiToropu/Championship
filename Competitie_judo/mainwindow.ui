@@ -29,6 +29,7 @@
     </property>
     <addaction name="actionAdauga_Concurent"/>
     <addaction name="actionAdauga_Categorie"/>
+    <addaction name="actionAdauga_Club"/>
    </widget>
    <widget class="QMenu" name="menuDatabase">
     <property name="title">
@@ -61,6 +62,11 @@
   <action name="actionRefresh">
    <property name="text">
     <string>Refresh</string>
+   </property>
+  </action>
+  <action name="actionAdauga_Club">
+   <property name="text">
+    <string>Adauga Club Sportiv</string>
    </property>
   </action>
  </widget>

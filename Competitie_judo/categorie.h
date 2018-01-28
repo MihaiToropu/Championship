@@ -12,11 +12,14 @@ public:
     void AddConcurent(concurent &Concurent);
     QString getNume();
     int getId();
+    int getCastigator();
 
 
 private:
      QString nume; //numele categoriei
      int id;
+     int castigator;
+
      //concurent& castigator;//castigatorul pe fiecare categorie
      QList<concurent>listaConcurenti;//lista de concurenti din fiecare categorie
 };

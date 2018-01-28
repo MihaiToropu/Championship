@@ -8,13 +8,13 @@ class organizatie;
 class concurent
 {
 public:
-    concurent(QString nume,int varsta,int greutate,QString experienta,int nrPuncte,int CNP/*,organizatie Organizatie*/);
+    concurent(QString nume,int varsta,int greutate,int nrPuncte,int id/*,organizatie Organizatie*/);
 
     int getVarsta();
     int getGreutate();
     QString getExperienta();
     QString getNume();
-    int getCNP();
+    int getID();
     void setnrPuncte(int puncte);
     int getnrPuncte();
    // organizatie getOrganizatie();
@@ -24,8 +24,6 @@ private:
     QString nume;
     int varsta; //varsta concurentului
     int greutate; //greutatea concurentului
-    int CNP;//cnp-ul concurentului
-    QString experienta;//experienta concurentului
     int nrPuncte; // numarul de puncte acumulat de concurent pe perioada competitiei
     //organizatie Organizatie;
 };

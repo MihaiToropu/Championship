@@ -4,16 +4,20 @@
 
 #include"categorie.h"
 #include<QList>
+#include "QComboBox"
 class QSqlDatabase;
+
 
 class categorieRepository
 {
 public:
     categorieRepository(QSqlDatabase& database);
     void init() const;
+    void initComboBox(QComboBox *cb);
     void AdaugaCategorie(categorie& Categorie);
     void StergeCategorie(int id);
-    QList<categorie> listaCategorii() const;
+    QList<categorie> listaCategorii() const ;
+
 private:
     QSqlDatabase& mDatabase;
 };

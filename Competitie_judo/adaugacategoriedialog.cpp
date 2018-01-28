@@ -18,12 +18,12 @@ adaugaCategorieDialog::~adaugaCategorieDialog()
 
 std::unique_ptr<categorie> adaugaCategorieDialog::introduceNumeleCategoriei()
 {
-    return std::make_unique<categorie>(ui->lineEdit->text().toInt(),ui->lineNume->text());
+    return std::make_unique<categorie>(ui->lineID->text().toInt(),ui->lineNume->text());
 }
 void adaugaCategorieDialog::accept()
 {
     bool ok=true;
-    ui->lineEdit->text().toInt(&ok);
+    ui->lineID->text().toInt(&ok);
     if(!ok)
     {
         QMessageBox::warning(this, tr("Eroare de adaugare"), tr("id trebuie sa fie numar"));

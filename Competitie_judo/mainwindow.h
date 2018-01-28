@@ -6,6 +6,7 @@
 #include"adaugaconcurentdialog.h"
 #include"categorie.h"
 #include"concurent.h"
+#include"adaugaclubdialog.h"
 
 namespace Ui {
 class MainWindow;
@@ -24,6 +25,8 @@ private slots:
     void AdaugaConcurent();
     void StergeConcurent();
     void StergeCategorie();
+    void AdaugaClub();
+    void StergeClub();
     void onViewTriggered(QAction *action);
     void onRefresh();
 
@@ -34,6 +37,7 @@ private:
     //std::unique_ptr<adaugaConcurentDialog> mAdaugaConcurentDialog;
     adaugaConcurentDialog *m_AdaugaConcurentDialog;
     adaugaCategorieDialog *m_AdaugaCategorieDialog;
+    adaugaClubDialog *m_AdaugaClubDialog;
     //concurent mConcurent;
     //categorie mCategorie;
 };

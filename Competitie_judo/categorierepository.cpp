@@ -3,7 +3,7 @@
 #include<QSqlDatabase>
 #include<QVariant>
 #include<QSqlQuery>
-const QString Tabel_Categorie_BazaDate = "Categorii";
+const QString Tabel_Categorie_BazaDate = "fight_categories";
 categorieRepository::categorieRepository(QSqlDatabase &database):mDatabase(database)
 {
 
@@ -12,8 +12,9 @@ categorieRepository::categorieRepository(QSqlDatabase &database):mDatabase(datab
 {
     if(!mDatabase.tables().contains(Tabel_Categorie_BazaDate))
         {
+        printf("creaza baza");
             QSqlQuery query(mDatabase);
-            query.prepare("CREATE TABLE categorie( id int PRIMARY KEY, nume character (30));");
+            query.prepare("CREATE TABLE fight_categories(category_id int PRIMARY KEY, category_name character (30),winner_fgk integer DEFAULT NULL );");
             if(query.exec())
             {
                 qDebug() << "Creat categories table";
@@ -28,33 +29,32 @@ categorieRepository::categorieRepository(QSqlDatabase &database):mDatabase(datab
 void categorieRepository::AdaugaCategorie(categorie &Categorie)
 {
     QSqlQuery query(mDatabase);
-        query.prepare("INSERT INTO"
-                      "     categorie"
-                      "(id,nume)"
-                      "VALUES (:id, :nume)");
-            query.bindValue(":id", Categorie.getId());
-            query.bindValue(":nume", Categorie.getNume());
-
+    printf("intra in categorie");
+        query.prepare("INSERT INTO fight_categories(category_id,category_name,winner_fgk) "
+                      "VALUES (:category_id,:category_name,:winner_fgk)");
+            query.bindValue(":category_id",Categorie.getId());
+            query.bindValue(":category_name",Categorie.getNume());
+            printf("iese din categorie");
     query.exec();
 }
 void categorieRepository::StergeCategorie(int id)
 {
     QSqlQuery query(mDatabase);
-    query.prepare("DELETE FROM categorie WHERE id = (:id)");
-    query.bindValue(":id", id);
+    query.prepare("DELETE FROM fight_categories WHERE category_id = (:category_id)");
+    query.bindValue(":category_id", id);
     query.exec();
 }
 
-QList<categorie> categorieRepository::listaCategorii() const
+ QList<categorie> categorieRepository::listaCategorii() const
 {
     QSqlQuery query(mDatabase);
-       query.prepare("SELECT * FROM categorie");
+       query.prepare("SELECT * FROM fight_categories");
        query.exec();
 
        QList<categorie> listaCategorii;
        while(query.next()) {
-           int id = query.value("id").toInt();
-           QString nume = query.value("nume").toString();
+           int id = query.value("category_id").toInt();
+           QString nume = query.value("category_name").toString();
 
            categorie Categorie(id,nume);
 
@@ -63,4 +63,12 @@ QList<categorie> categorieRepository::listaCategorii() const
 
    return listaCategorii;
 
+}
+
+ void categorieRepository::initComboBox(QComboBox *cb)
+ {
+     //cb.clear();
+     for (auto & i :listaCategorii()) {
+        cb->addItem(i.getNume());
+ }
 }

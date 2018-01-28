@@ -3,6 +3,7 @@
 
 #include "concurentRepository.h"
 #include "categorierepository.h"
+#include "clubreposititory.h"
 
 #include <memory>
 #include <QString>
@@ -13,7 +14,7 @@
 class QSqlQuerry;
 class QSqlDatabase;
 
-static const QString DATABASE_CONFIG_FILE_PATH = "/home/marius/DB/Championship/Competitie_judo/config.conf";
+static const QString DATABASE_CONFIG_FILE_PATH = "/home/marius/DB/Championship/Competitie_judo/configDataBase.conf";
 
 class DatabaseManager
 {
@@ -29,6 +30,7 @@ private:
 public:
     concurentRepository mConcurentRepository;
     categorieRepository mCategorieRepository;
+    clubRepository mClubRepository;
 };
 
 
