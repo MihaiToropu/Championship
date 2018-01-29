@@ -1,7 +1,7 @@
 #ifndef CONCURENTREPOSITORY_H
 #define CONCURENTREPOSITORY_H
 
-#include<QList>;
+#include<QList>
 #include"concurent.h"
 #include<memory>
 

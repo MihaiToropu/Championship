@@ -1,14 +1,19 @@
 #include "adaugaconcurentdialog.h"
 #include "ui_adaugaconcurentdialog.h"
+
 #include<QMessageBox>
 #include <QtSql>
-adaugaConcurentDialog::adaugaConcurentDialog(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::adaugaConcurentDialog)
-{
 
+using namespace Ui;
+
+adaugaConcurentDialog::adaugaConcurentDialog(categorieRepository & categRepo,clubRepository & clubRepo, QWidget *parent) :
+    QDialog(parent),
+    ui(this)
+{
     ui->setupUi(this);
 
+    categRepo.initComboBox(*ui->comboCategorie);
+    clubRepo.initComboBox(*ui->comboClub);
 }
 
 adaugaConcurentDialog::~adaugaConcurentDialog()
@@ -51,5 +56,3 @@ void adaugaConcurentDialog::showEvent(QShowEvent *)
     ui->lineNr_puncte->setText("");
     ui->lineID->setText("");
 }
-
-

@@ -4,12 +4,12 @@
 
 #include <QString>
 #include <QList>
-#include "concurent.h"
+//#include "concurent.h"
 class categorie
 {
 public:
     categorie(int id,QString nume);
-    void AddConcurent(concurent &Concurent);
+   // void AddConcurent(concurent &Concurent);
     QString getNume();
     int getId();
     int getCastigator();
@@ -21,7 +21,7 @@ private:
      int castigator;
 
      //concurent& castigator;//castigatorul pe fiecare categorie
-     QList<concurent>listaConcurenti;//lista de concurenti din fiecare categorie
+    // QList<concurent>listaConcurenti;//lista de concurenti din fiecare categorie
 };
 
 #endif // CATEGORIE_H

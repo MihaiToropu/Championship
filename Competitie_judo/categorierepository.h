@@ -13,7 +13,7 @@ class categorieRepository
 public:
     categorieRepository(QSqlDatabase& database);
     void init() const;
-    void initComboBox(QComboBox *cb);
+    void initComboBox(QComboBox &cb);
     void AdaugaCategorie(categorie& Categorie);
     void StergeCategorie(int id);
     QList<categorie> listaCategorii() const ;

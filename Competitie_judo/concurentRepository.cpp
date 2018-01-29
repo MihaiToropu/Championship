@@ -44,8 +44,8 @@ void concurentRepository::AdaugaConcurent(concurent& Concurent)
         query.bindValue(":age", Concurent.getVarsta());
         query.bindValue(":weight", Concurent.getGreutate());
         query.bindValue(":points", Concurent.getnrPuncte());
-        query.bindValue(":fight_club_fgk", 3);
-        query.bindValue(":fight_category_fgk",2);
+        query.bindValue(":fight_club_fgk",0);
+        query.bindValue(":fight_category_fgk",0);
         //printf("a facut prepare");
         qDebug() <<query.lastError();
 

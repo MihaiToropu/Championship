@@ -4,6 +4,7 @@
 
 #include<QList>
 #include "club.h"
+#include<QComboBox>
 class QSqlDatabase;
 
 
@@ -16,9 +17,11 @@ public:
     void init() const;
     void AdaugaClub(club& Club);
     void StergeClub(int id);
+    void initComboBox(QComboBox &cb);
     QList<club> listaCluburi() const;
 private:
     QSqlDatabase& mDatabase;
+
 };
 
 #endif // CLUBREPOSTITORY_H

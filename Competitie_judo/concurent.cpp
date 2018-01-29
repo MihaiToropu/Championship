@@ -2,15 +2,13 @@
 
 
 
-concurent::concurent(QString nume,int varsta,int greutate,int nrPuncte,int id/*,organizatie Organizatie*/)
+concurent::concurent(QString nume,int varsta,int greutate,int nrPuncte,int id)
 {
     this->nume=nume;
     this->varsta=varsta;
     this->greutate=greutate;
     this->nrPuncte=nrPuncte;
     this->id=id;
-    //this->Organizatie=Organizatie;
-
 }
  int concurent::getVarsta()
 {
@@ -39,8 +37,4 @@ QString concurent::getNume()
     return nume;
 }
 
-/*organizatie concurent::getOrganizatie()
-{
-    return organizatie;
-}
-*/
+

@@ -65,10 +65,10 @@ void categorieRepository::StergeCategorie(int id)
 
 }
 
- void categorieRepository::initComboBox(QComboBox *cb)
+ void categorieRepository::initComboBox(QComboBox &cb)
  {
      //cb.clear();
      for (auto & i :listaCategorii()) {
-        cb->addItem(i.getNume());
+        cb.addItem(i.getNume());
  }
 }

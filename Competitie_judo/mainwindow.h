@@ -35,7 +35,7 @@ private:
     //std::unique_ptr<adaugaCategorieDialog> mAdaugaCategorieDialog;
 
     //std::unique_ptr<adaugaConcurentDialog> mAdaugaConcurentDialog;
-    adaugaConcurentDialog *m_AdaugaConcurentDialog;
+    Ui::adaugaConcurentDialog *m_AdaugaConcurentDialog;
     adaugaCategorieDialog *m_AdaugaCategorieDialog;
     adaugaClubDialog *m_AdaugaClubDialog;
     //concurent mConcurent;

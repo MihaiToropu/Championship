@@ -22,6 +22,7 @@ class DatabaseManager
 public:
     static DatabaseManager& instance();
     ~DatabaseManager();
+
 protected:
     DatabaseManager(const QString& path = DATABASE_CONFIG_FILE_PATH);
 

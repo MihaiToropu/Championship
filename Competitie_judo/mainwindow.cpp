@@ -12,11 +12,14 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     connect(ui->actionAdauga_Concurent, &QAction::triggered, this, &MainWindow::AdaugaConcurent);
-    m_AdaugaConcurentDialog = new adaugaConcurentDialog(this);
+    m_AdaugaConcurentDialog = new Ui::adaugaConcurentDialog(DatabaseManager::instance().mCategorieRepository,DatabaseManager::instance().mClubRepository,this);
     connect(ui->actionAdauga_Categorie, &QAction::triggered, this, &MainWindow::AdaugaCategorie);
     m_AdaugaCategorieDialog = new adaugaCategorieDialog(this);
     connect(ui->actionAdauga_Club, &QAction::triggered, this, &MainWindow::AdaugaClub);
     m_AdaugaClubDialog=new adaugaClubDialog(this);
+
+    QPixmap pix("/home/marius/DB/Championship/others/judo.png");
+    ui->Image->setPixmap(pix);
 
 }
 

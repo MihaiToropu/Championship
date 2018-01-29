@@ -55,8 +55,8 @@ QList<club> clubRepository::listaCluburi() const
 
        QList<club> listaCluburi;
        while(query.next()) {
-           int id = query.value("category_id").toInt();
-           QString nume = query.value("category_name").toString();
+           int id = query.value("club_id").toInt();
+           QString nume = query.value("club_name").toString();
 
            club Club(id,nume);
 
@@ -65,4 +65,12 @@ QList<club> clubRepository::listaCluburi() const
 
    return listaCluburi;
 
+}
+
+void clubRepository::initComboBox(QComboBox &cb)
+{
+    //cb.clear();
+    for (auto & i :listaCluburi()) {
+       cb.addItem(i.getNume());
+}
 }

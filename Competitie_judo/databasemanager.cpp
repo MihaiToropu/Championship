@@ -42,6 +42,7 @@ DatabaseManager::DatabaseManager(const QString& path) :
 
     mConcurentRepository.init();
     mCategorieRepository.init();
+    mClubRepository.init();
 }
 
 DatabaseManager::~DatabaseManager()

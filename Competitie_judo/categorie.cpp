@@ -17,10 +17,11 @@ int categorie::getId()
 }
 
 
-void categorie::AddConcurent(concurent &Concurent)
+/*void categorie::AddConcurent(concurent &Concurent)
 {
     listaConcurenti.push_back(Concurent);
 }
+*/
 
 int categorie::getCastigator()
 {
