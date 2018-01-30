@@ -10,9 +10,12 @@
 #include"stergeclubdialog.h"
 #include"stergeconcurentdialog.h"
 #include"adaugaclubdialog.h"
+#include"dueldialog.h"
+#include"clasamentdialog.h"
 #include <QSqlTableModel>
 #include <QSqlDatabase>
 #include <QTableView>
+#include <duel.h>
 
 namespace Ui {
 class MainWindow;
@@ -33,9 +36,13 @@ private slots:
     void StergeCategorie();
     void AdaugaClub();
     void StergeClub();
+    void SimuleazaDuel();
+    void SimuleazaClasament();
     void onViewTriggered(QAction *action);
     void onRefresh();
     void setupModel();
+    void setupModel2();
+    void setupModel3();
 
 private:
     Ui::MainWindow *ui;
@@ -48,10 +55,16 @@ private:
     stergeCategorieDialog *m_StergeCategorieDialog;
     stergeClubDialog *m_StergeClubDialog;
     stergeConcurentDialog *m_StergeConcurentDialog;
-
+    DuelDialog *m_duelDialog;
     QSqlTableModel *m_model;
+    QSqlTableModel *m_model2;
+    QSqlTableModel *m_model3;
     QSqlDatabase mDatabase;
     QSqlQueryModel *m_concurent;
+    QSqlQueryModel *m_categorie;
+    QSqlQueryModel *m_club;
+    ClasamentDialog *m_clasamentDialog;
+    duel *Duel;
     //concurent mConcurent;
     //categorie mCategorie;
 };

@@ -3,6 +3,8 @@
 #include<QSqlDatabase>
 #include<QVariant>
 #include<QSqlQuery>
+#include <iostream>
+using namespace std;
 const QString Tabel_Categorie_BazaDate = "fight_categories";
 categorieRepository::categorieRepository(QSqlDatabase &database):mDatabase(database)
 {
@@ -68,9 +70,27 @@ void categorieRepository::StergeCategorie(QString id)
  void categorieRepository::initComboBox(QComboBox &cb)
 {
      cb.clear();
-     for (auto & i :listaCategorii()) {
-        cb.addItem(i.getNume());
- }
+     for (auto & i :listaCategorii())
+         {
+           cb.addItem(i.getNume());
+         }
 
 }
+
+ QList<int> categorieRepository::listaConcurentiCategorii(QString id_categorie) const
+ {
+     QSqlQuery query(mDatabase);
+        query.prepare("SELECT * FROM competitor WHERE fight_category_fgk='"+id_categorie+"");
+        query.bindValue(":fight_category",id_categorie);
+        query.exec();
+
+        QList<int> listaConcurentiCategorii;
+        while(query.next()) {
+            int id = query.value("competitor_id").toInt();
+                    printf("%d",id);
+            listaConcurentiCategorii.push_back(id);
+        }
+
+    return listaConcurentiCategorii;
+ }
 

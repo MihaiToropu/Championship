@@ -5,6 +5,7 @@
 #include"categorie.h"
 #include<QList>
 #include "QComboBox"
+#include"concurent.h"
 class QSqlDatabase;
 
 
@@ -17,6 +18,8 @@ public:
     void AdaugaCategorie(categorie& Categorie);
     void StergeCategorie(QString id);
     QList<categorie> listaCategorii() const;
+    QList<int> listaConcurentiCategorii(QString id_categorie) const;
+
 
 private:
     QSqlDatabase& mDatabase;

@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui sql
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Competitie_judo
@@ -39,7 +40,9 @@ SOURCES += \
     clubrepostitory.cpp \
     stergeconcurentdialog.cpp \
     stergecategoriedialog.cpp \
-    stergeclubdialog.cpp
+    stergeclubdialog.cpp \
+    dueldialog.cpp \
+    clasamentdialog.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -58,7 +61,9 @@ HEADERS += \
     clubreposititory.h \
     stergeclubdialog.h \
     stergeconcurentdialog.h \
-    stergecategoriedialog.h
+    stergecategoriedialog.h \
+    dueldialog.h \
+    clasamentdialog.h
 
 FORMS += \
         mainwindow.ui \
@@ -67,7 +72,9 @@ FORMS += \
     adaugaclubdialog.ui \
     stergeconcurentdialog.ui \
     stergecategoriedialog.ui \
-    stergeclubdialog.ui
+    stergeclubdialog.ui \
+    dueldialog.ui \
+    clasamentdialog.ui
 
 
 

@@ -79,17 +79,17 @@ void concurentRepository::AdaugaConcurent(concurent& Concurent)
         query.exec();
         printf("a facut exec");
 }
-void concurentRepository::UpdateConcurent(concurent& Concurent)
+void concurentRepository::UpdatePunctajConcurent(int id_Concurent,int punctaj)
 {
     QSqlQuery query(mDatabase);
         query.prepare("UPDATE "
                       "competitor"
                       "SET"
-                      "      points = (:points)"
+                      "      points = :points"
                       "WHERE"
-                      "      concurent_id = (:concurent_id)");
-        query.bindValue(":points", Concurent.getnrPuncte());
-        query.bindValue(":concurent_ID", Concurent.getID());
+                      "      concurent_id = :concurent_id");
+        query.bindValue(":points", punctaj);
+        query.bindValue(":concurent_id", id_Concurent);
         query.exec();
 }
 

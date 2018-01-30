@@ -13,7 +13,7 @@ public:
     concurentRepository(QSqlDatabase& database);
     void init() const;
     void AdaugaConcurent(concurent& Concurent);
-    void UpdateConcurent(concurent& player);
+    void UpdatePunctajConcurent(int id_concurent,int punctaj);
     void StergeConcurent(QString id);
     std::vector<concurent> listaConcurent() const;
 private:
