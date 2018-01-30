@@ -14,6 +14,7 @@ adaugaConcurentDialog::adaugaConcurentDialog(categorieRepository & categRepo,clu
 
     categRepo.initComboBox(*ui->comboCategorie);
     clubRepo.initComboBox(*ui->comboClub);
+
 }
 
 adaugaConcurentDialog::~adaugaConcurentDialog()
@@ -23,11 +24,15 @@ adaugaConcurentDialog::~adaugaConcurentDialog()
 
 std::unique_ptr<concurent> adaugaConcurentDialog::introduceDateConcurent()
 {
+
+
     return std::make_unique<concurent>(ui->lineNume->text(),
                                                 ui->lineVarsta->text().toInt(),
                                                 ui->lineGreutate->text().toDouble(),
                                                 ui->lineNr_puncte->text().toInt(),
-                                                ui->lineID->text().toInt());
+                                                ui->lineID->text().toInt(),
+                                                ui->comboCategorie->currentText(),
+                                                ui->comboClub->currentText());
 }
 
 void adaugaConcurentDialog::accept()

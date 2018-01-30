@@ -8,7 +8,7 @@
 class concurent
 {
 public:
-    concurent(QString nume,int varsta,int greutate,int nrPuncte,int id);
+    concurent(QString nume,int varsta,int greutate,int nrPuncte,int id, QString numeCategorie,QString numeClub);
 
     int getVarsta();
     int getGreutate();
@@ -17,7 +17,8 @@ public:
     int getID();
     void setnrPuncte(int puncte);
     int getnrPuncte();
-
+    QString getNumeCategorie();
+    QString getNumeClub();
 
 private:
     int id;//indentificatorul unic al fiecarui concurent
@@ -25,6 +26,8 @@ private:
     int varsta; //varsta concurentului
     int greutate; //greutatea concurentului
     int nrPuncte; // numarul de puncte acumulat de concurent pe perioada competitiei
+    QString numeCategorie;
+    QString numeClub;
 
 };
 

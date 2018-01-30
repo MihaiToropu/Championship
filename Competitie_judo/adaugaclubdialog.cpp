@@ -7,6 +7,8 @@ adaugaClubDialog::adaugaClubDialog(QWidget *parent) :
     ui(new Ui::adaugaClubDialog)
 {
     ui->setupUi(this);
+
+
 }
 
 adaugaClubDialog::~adaugaClubDialog()

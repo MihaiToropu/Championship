@@ -15,8 +15,8 @@ public:
     void init() const;
     void initComboBox(QComboBox &cb);
     void AdaugaCategorie(categorie& Categorie);
-    void StergeCategorie(int id);
-    QList<categorie> listaCategorii() const ;
+    void StergeCategorie(QString id);
+    QList<categorie> listaCategorii() const;
 
 private:
     QSqlDatabase& mDatabase;

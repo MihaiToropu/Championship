@@ -16,7 +16,7 @@ public:
     clubRepository(QSqlDatabase& database);
     void init() const;
     void AdaugaClub(club& Club);
-    void StergeClub(int id);
+    void StergeClub(QString id);
     void initComboBox(QComboBox &cb);
     QList<club> listaCluburi() const;
 private:

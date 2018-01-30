@@ -28,6 +28,7 @@ namespace Ui
 
     private:
          Ui::adaugaConcurentDialog *ui;
+
     };
 }
 

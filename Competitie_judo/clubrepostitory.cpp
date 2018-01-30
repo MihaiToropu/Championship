@@ -39,10 +39,10 @@ void clubRepository::AdaugaClub(club &Club)
        query.exec();
 }
 
-void clubRepository::StergeClub(int id)
+void clubRepository::StergeClub(QString id)
 {
     QSqlQuery query(mDatabase);
-    query.prepare("DELETE FROM fight_club WHERE club_id = (:club_id)");
+    query.prepare("DELETE FROM fight_club WHERE club_id = '"+id+"'");
     query.bindValue(":club_id", id);
     query.exec();
 }
@@ -69,7 +69,7 @@ QList<club> clubRepository::listaCluburi() const
 
 void clubRepository::initComboBox(QComboBox &cb)
 {
-    //cb.clear();
+    cb.clear();
     for (auto & i :listaCluburi()) {
        cb.addItem(i.getNume());
 }

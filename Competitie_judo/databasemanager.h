@@ -25,8 +25,7 @@ public:
 
 protected:
     DatabaseManager(const QString& path = DATABASE_CONFIG_FILE_PATH);
-
-private:
+public:
     std::unique_ptr<QSqlDatabase> mDatabase;
 public:
     concurentRepository mConcurentRepository;

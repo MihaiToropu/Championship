@@ -34,18 +34,41 @@ void concurentRepository::init() const
 }
 void concurentRepository::AdaugaConcurent(concurent& Concurent)
 {
+
     QSqlQuery query(mDatabase);
-    printf("intra");
-    query.prepare("INSERT INTO competitor(competitor_id,age,weight,points,name,fight_club_fgk,fight_category_fgk) "
+    QSqlQuery query1(mDatabase);
+    QSqlQuery query2(mDatabase);
+    auto categ = Concurent.getNumeCategorie().trimmed();
+
+    auto queryStr = "SELECT * FROM fight_categories WHERE category_name = '" + categ + "'";
+       bool success = query1.prepare(queryStr);
+        success;
+       query1.exec();
+       QString err = query1.lastError().text();
+       query1.next();
+       int id = query1.value("category_id").toInt();
+
+       auto club = Concurent.getNumeClub().trimmed();
+
+       auto queryStr1 = "SELECT * FROM fight_club WHERE club_name = '" + club + "'";
+          bool success1 = query2.prepare(queryStr1);
+           success1;
+          query2.exec();
+          QString err1 = query2.lastError().text();
+          query2.next();
+          int id1 = query2.value("club_id").toInt();
+
+       query.prepare("INSERT INTO competitor(competitor_id,age,weight,points,name,fight_club_fgk,fight_category_fgk) "
                   "VALUES(:competitor_id,:age,:weight,:points,:name,:fight_club_fgk,:fight_category_fgk)");
 
         query.bindValue(":competitor_id",Concurent.getID());
         query.bindValue(":name",Concurent.getNume());
         query.bindValue(":age", Concurent.getVarsta());
-        query.bindValue(":weight", Concurent.getGreutate());
-        query.bindValue(":points", Concurent.getnrPuncte());
-        query.bindValue(":fight_club_fgk",0);
-        query.bindValue(":fight_category_fgk",0);
+        query.bindValue(":weight",Concurent.getGreutate());
+        query.bindValue(":points",Concurent.getnrPuncte());
+
+        query.bindValue(":fight_club_fgk",id1);
+        query.bindValue(":fight_category_fgk",id);
         //printf("a facut prepare");
         qDebug() <<query.lastError();
 
@@ -71,11 +94,14 @@ void concurentRepository::UpdateConcurent(concurent& Concurent)
 }
 
 
-void concurentRepository::StergeConcurent(int id)
+void concurentRepository::StergeConcurent(QString id)
 {
+    printf("%d",id);
     QSqlQuery query(mDatabase);
-    query.prepare("DELETE FROM competitor WHERE competitor_id = (:competitor_id)");
-    query.bindValue(":competitor_id", id);
+
+    query.prepare("DELETE FROM competitor WHERE competitor_id ='"+id+"' ");
+    query.bindValue(":competitor_id",id);
+
     qDebug() << query.exec();
 }
 std::vector<concurent> concurentRepository::listaConcurent() const
@@ -93,9 +119,11 @@ std::vector<concurent> concurentRepository::listaConcurent() const
         int greutate = query.value("weight").toInt();
         int nrPuncte = query.value("points").toInt();
         int competitor_id = query.value("competitor_id").toInt();
+        QString category_id=query.value("fight_category_fgk").toString();
+        QString club_id=query.value("fight_club_fgk").toString();
         //QString Organizatie=query.value("nume").toString();
 
-        concurent Concurent(nume,varsta,greutate,nrPuncte,competitor_id);
+        concurent Concurent(nume,varsta,greutate,nrPuncte,competitor_id,category_id,club_id);
 
 
         listaConcurent.push_back(Concurent);

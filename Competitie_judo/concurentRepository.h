@@ -14,7 +14,7 @@ public:
     void init() const;
     void AdaugaConcurent(concurent& Concurent);
     void UpdateConcurent(concurent& player);
-    void StergeConcurent(int CNP);
+    void StergeConcurent(QString id);
     std::vector<concurent> listaConcurent() const;
 private:
      QSqlDatabase& mDatabase;

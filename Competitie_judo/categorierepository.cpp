@@ -37,10 +37,10 @@ void categorieRepository::AdaugaCategorie(categorie &Categorie)
             printf("iese din categorie");
     query.exec();
 }
-void categorieRepository::StergeCategorie(int id)
+void categorieRepository::StergeCategorie(QString id)
 {
     QSqlQuery query(mDatabase);
-    query.prepare("DELETE FROM fight_categories WHERE category_id = (:category_id)");
+    query.prepare("DELETE FROM fight_categories WHERE category_id = '"+id+"'");
     query.bindValue(":category_id", id);
     query.exec();
 }
@@ -66,9 +66,11 @@ void categorieRepository::StergeCategorie(int id)
 }
 
  void categorieRepository::initComboBox(QComboBox &cb)
- {
-     //cb.clear();
+{
+     cb.clear();
      for (auto & i :listaCategorii()) {
         cb.addItem(i.getNume());
  }
+
 }
+

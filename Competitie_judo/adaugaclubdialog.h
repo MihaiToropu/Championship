@@ -4,7 +4,7 @@
 #include <QDialog>
 #include "club.h"
 #include <memory>
-
+#include <QSqlDatabase>
 
 
 namespace Ui {
@@ -25,6 +25,7 @@ protected:
     void showEvent(QShowEvent *);
 private:
     Ui::adaugaClubDialog *ui;
+    QSqlDatabase mDatabase;
 };
 
 #endif // ADAUGACLUBDIALOG_H

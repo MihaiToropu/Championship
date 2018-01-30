@@ -25,7 +25,6 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     concurent.cpp \
-    organizatie.cpp \
     etapa.cpp \
     duel.cpp \
     categorie.cpp \
@@ -37,12 +36,14 @@ SOURCES += \
     adaugacategoriedialog.cpp \
     adaugaclubdialog.cpp \
     club.cpp \
-    clubrepostitory.cpp
+    clubrepostitory.cpp \
+    stergeconcurentdialog.cpp \
+    stergecategoriedialog.cpp \
+    stergeclubdialog.cpp
 
 HEADERS += \
         mainwindow.h \
     concurent.h \
-    organizatie.h \
     etapa.h \
     duel.h \
     categorie.h \
@@ -54,13 +55,19 @@ HEADERS += \
     adaugacategoriedialog.h \
     adaugaclubdialog.h \
     club.h \
-    clubreposititory.h
+    clubreposititory.h \
+    stergeclubdialog.h \
+    stergeconcurentdialog.h \
+    stergecategoriedialog.h
 
 FORMS += \
         mainwindow.ui \
     adaugaconcurentdialog.ui \
     adaugacategoriedialog.ui \
-    adaugaclubdialog.ui
+    adaugaclubdialog.ui \
+    stergeconcurentdialog.ui \
+    stergecategoriedialog.ui \
+    stergeclubdialog.ui
 
 
 
